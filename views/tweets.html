@@ -1,0 +1,19 @@
+<h2>Twitter API Sample</h2>
+<div>
+  <% tweetList.forEach( function(tweet) { %>
+  <div class="card m-2" style="width: 18rem;">
+    <% if (tweet.extended_entities) { %>
+    <div class="image-wrapper">
+      <img class="card-img-top" src=<%= tweet.extended_entities ?
+      tweet.extended_entities.media[0].media_url_https : '' %> alt="tweet
+      image">
+    </div>
+    <% }; %>
+    <div class="card-body">
+      <h5 class="card-title"><%= tweet.user.name %></h5>
+      <p class="card-text"><%= tweet.text %></p>
+      <div class="p2"><p class="text-muted"><%= tweet.created_at %></p></div>
+    </div>
+  </div>
+  <% }); %>
+</div>
